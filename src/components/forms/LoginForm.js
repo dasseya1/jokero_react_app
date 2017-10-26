@@ -31,10 +31,10 @@ class LoginForm extends Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { data, errors } = this.state;
         return (
             <Form onSubmit={this.onSubmit}>
-                <Form.Field>
+                <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input 
                         type="email" 
@@ -43,18 +43,20 @@ class LoginForm extends Component {
                         placeholder="example@example.com"
                         value={data.email}
                         onChange={this.onChange}
-                        />
+                    />
+                    {errors.email && <InlineError text={errors.email} />}
                 </Form.Field>
-                <Form.Field>
+                <Form.Field error={!!errors.password}>
                     <label htmlFor="email">Password</label>
                     <input 
                         type="password" 
                         id="password" 
-                        name="password" 
+                        name="password"     
                         placeholder="Make it secure"
                         value={data.password}
                         onChange={this.onChange}
-                        />
+                    />
+                    {errors.password && <InlineError text={errors.password} />}
                 </Form.Field>
                 <Button primary>Login</Button>
             </Form>
