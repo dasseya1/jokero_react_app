@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import LoginForm from "../forms/LoginForm";
+import LoginForm from '../forms/LoginForm';
 import PropTypes from 'prop-types';
-
+import { login } from '../../actions/auth';
+import { connect } from 'react-redux';
 
 class LoginPage extends Component {
 
@@ -22,8 +23,8 @@ class LoginPage extends Component {
 LoginPage.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
     login: PropTypes.func.isRequired
 };
 
-export default LoginPage;
+export default connect(null, { login })(LoginPage);

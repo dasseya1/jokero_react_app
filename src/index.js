@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './rootReducer';
 
 
-const store = createStore(rootReducer, composeWithDevTools(appplyMiddleware(thunk)));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
     <BrowserRouter>
